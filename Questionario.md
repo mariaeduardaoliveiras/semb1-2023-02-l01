@@ -2,25 +2,47 @@
 
 ## 1. Explique brevemente o que é compilação cruzada (***cross-compiling***) e para que ela serve.
 
+A compilação cruzada, também conhecida como "cross-compilation" em inglês, é o processo de compilar código-fonte em um ambiente de desenvolvimento para que possa ser executado em uma plataforma ou arquitetura diferente daquela em que foi compilado. Isso significa que o código-fonte é compilado em uma máquina diferente daquela em será executado. 
+Esta compilação é utilizada em desenvolvimento de software para sistemas embarcados, dispositivos móveis e outras plataformas onde a arquitetura de hardware pode ser diferente daquela dos computadores tradicionais de desenvolvimento. 
+
 ## 2. O que é um código de inicialização ou ***startup*** e qual sua finalidade?
+
+Um código de inicialização é um conjunto de instruções de baixo nível que é executado assim que um sistema embarcado ou um programa de computador é inicializado. Sua finalidade é preparar o ambiente de execução para a execução do programa principal. Um exemplo é a Inicialização de Bibliotecas: em muitos sistemas, o código de inicialização é resposável por iniciar bibliotecas padrão e outras dependências necessárias para a execução do programa. 
 
 ## 3. Sobre o utilitário **make** e o arquivo **Makefile responda**:
 
 #### (a) Explique com suas palavras o que é e para que serve o **Makefile**.
 
+O arquivo Makefile é um arquivo de configuração, seu objetivo é a automatização nos processos de compliação de projetos de desenvolvimento de software, ele especifica as regras e os comandos que o sistema de compilação deve seguir para criar os executáveis finais a partir do código-fonte e de outros arquivos associados ao projeto. Ele atua reconhecendo as alterações que foram feitas no arquivo de código-fonte e com isso reconhece quais partes do código precisam ser recompiladas e realiza apenas essas compilações específicas. 
+
 #### (b) Descreva brevemente o processo realizado pelo utilitário **make** para compilar um programa.
+
+O utilitário make começa fazendo a leitura do Makefile, em seguida examina os arquivos necessários para a execução do programa, determina se reconstruções de alvos são necessárias, se necessárias se faz a execução de regras de construção correspondentes definidas no Makefile, atualiza os arquivos resultados da compilação e por fim conclui o processo. 
+
 
 #### (c) Qual é a sintaxe utilizada para criar um novo **target**?
 
+targets: prerequisites
+          	recipe 
+
+
 #### (d) Como são definidas as dependências de um **target**, para que elas são utilizadas?
 
+As dependências de target são definidas logo depois dos nome target, listando os pré-requisitos, que consistem em arquivos necessários para construir o alvo. Se algum dos pré-requisitos for mais recente do que o alvo, os comandos serão executados.  
+
+
 #### (e) O que são as regras do **Makefile**, qual a diferença entre regras implícitas e explícitas?
+São instruções para como o programa deve ser compilado, as regras implicitas são as definidas pelo arquivo make e as explicitas são desenvolvidas pelo desenvolvedor. 
 
 ## 4. Sobre a arquitetura **ARM Cortex-M** responda:
 
 ### (a) Explique o conjunto de instruções ***Thumb*** e suas principais vantagens na arquitetura ARM. Como o conjunto de instruções ***Thumb*** opera em conjunto com o conjunto de instruções ARM?
 
+O conjunto Thumb é um conjunto da arquitetura ARM mais compactada. Entre suas vantagens está a economia de espaço, onde utiliza-se apenas 16 bits, eficiência energética, por conta do menor número de instruções. O conjunto Thumb opera junto com o conjuto de intruções ARM por meio modo Thumb e o modo ARM. O modo Thumb s instruções são codificadas em 16 bits, sendo mais compactas que as instruções do modo ARM, que normalmente são codificadas em 32 bits e o modo ARM as instruções são codificadas em 32 bits, proporcionando uma maior variedade de operações, sendo assim nesse modo ignora-se as instruções Thumb. O processador ARM alterna entre os modos, obtendo as vantagens de ambos. 
+
 ### (b) Explique as diferenças entre as arquiteturas ***ARM Load/Store*** e ***Register/Register***.
+
+
 
 ### (c) Os processadores **ARM Cortex-M** oferecem diversos recursos que podem ser explorados por sistemas baseados em **RTOS** (***Real Time Operating Systems***). Por exemplo, a separação da execução do código em níveis de acesso e diferentes modos de operação. Explique detalhadamente como funciona os níveis de acesso de execução de código e os modos de operação nos processadores **ARM Cortex-M**.
 
